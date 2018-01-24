@@ -1,0 +1,26 @@
+package textproc;
+import java.util.*;
+public class MultiWordCounter implements TextProcessor{
+	
+	Map<String,Integer> countlist = new HashMap<String,Integer>();
+	
+	public MultiWordCounter(String[] words){
+		for(String s:words){
+			countlist.put(s, 0);
+		}
+		
+	}
+
+	@Override
+	public void process(String w) {
+		countlist.forEach((k,v)-> if(w.equals(k)){v++}});
+	
+		
+	}
+
+	@Override
+	public void report() {
+		countlist.forEach((k,v)-> Systems.out.println("Key: " + k + ": Value: "+v));
+		
+	}
+}

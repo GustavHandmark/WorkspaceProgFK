@@ -1,0 +1,9 @@
+package tester;
+import java.util.*;
+
+public class Forbered {
+	public static void main(String[] args){
+		List<Integer> nbrs = new ArrayList<Integer>();
+		
+	}
+}

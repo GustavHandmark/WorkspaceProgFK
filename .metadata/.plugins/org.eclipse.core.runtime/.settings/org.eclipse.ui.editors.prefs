@@ -1,0 +1,14 @@
+AbstractTextEditor.Color.Background=250,250,250
+AbstractTextEditor.Color.Background.SystemDefault=false
+AbstractTextEditor.Color.SelectionBackground.SystemDefault=false
+AbstractTextEditor.Color.SelectionForeground.SystemDefault=false
+eclipse.preferences.version=1
+findIndication=false
+occurrenceHighlighting=false
+occurrenceIndication=true
+occurrenceTextStyle=UNDERLINE
+overviewRuler_migration=migrated_3.1
+spellingIndication=false
+writeOccurrenceHighlighting=false
+writeOccurrenceIndication=true
+writeOccurrenceTextStyle=UNDERLINE

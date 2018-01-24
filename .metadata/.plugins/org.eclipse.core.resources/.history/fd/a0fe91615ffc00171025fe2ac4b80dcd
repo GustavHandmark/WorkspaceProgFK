@@ -1,0 +1,33 @@
+package textproc;
+
+import java.util.*;
+
+public class GeneralWordCounter implements TextProcessor {
+	Map<String, Integer> wordlist = new HashMap<String, Integer>();
+	// HashSet uses Hashmap for almost all of its internal methods
+	Set<String> excluded = new HashSet<String>();
+
+	public GeneralWordCounter(Set<String> s) {
+		excluded = s;
+	}
+
+	public void process(String w) {
+		if (!excluded.contains(w)) {
+			if (wordlist.containsKey(w)) {
+				wordlist.compute(w, (k, v) -> v + 1);
+			} else {
+				wordlist.put(w, 1);
+			}
+		}
+	}
+
+	public void report() {
+		wordlist.forEach((k, v) -> {
+			if (v >= 200) {
+				System.out.println(k + " : " + v);
+			}
+		});
+
+	}
+
+}

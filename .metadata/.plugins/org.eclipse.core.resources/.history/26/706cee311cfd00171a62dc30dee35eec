@@ -1,0 +1,14 @@
+package singleLinkedList;
+
+public class lltest {
+		
+	public void main(String[] args){
+		SingleLinkedList<Integer> linkedlist = new SingleLinkedList<Integer>();
+		for(int i =0; i<3; i++){
+			linkedlist.addFirst(i);
+		}
+		linkedlist.toString();
+	}
+	
+
+}

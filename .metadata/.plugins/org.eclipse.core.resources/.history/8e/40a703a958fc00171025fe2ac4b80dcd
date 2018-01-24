@@ -1,0 +1,24 @@
+package textproc;
+
+import java.util.*;
+
+public class GeneralWordCounter implements TextProcessor{
+	Map<String,Integer> wordlist = new HashMap<String,Integer>();
+	public GeneralWordCounter(Set<String> s){
+		
+		
+	}
+	@Override
+	public void process(String w) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void report() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

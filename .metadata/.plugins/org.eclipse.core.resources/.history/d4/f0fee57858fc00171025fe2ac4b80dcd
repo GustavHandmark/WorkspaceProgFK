@@ -1,0 +1,6 @@
+package textproc;
+
+public class GeneralWordCounter implements TextProcessor{
+	
+
+}
