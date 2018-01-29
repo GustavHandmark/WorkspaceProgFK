@@ -24,7 +24,7 @@ public class MultiWordCounter implements TextProcessor {
 //		if(countlist.containsKey(w)){
 //			countlist.put(w, map.get(w)+1);
 //		}
-//		Alternative 1), no need to iterate here, but would work.
+//		Alternative 3)
 //		countlist.forEach((k, v) -> {
 //			if (w.equals(k)) {
 //				v++;

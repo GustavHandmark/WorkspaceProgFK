@@ -1,7 +1,0 @@
-package tester;
-
-public class Forbered {
-	public static void main(String[] args){
-		
-	}
-}

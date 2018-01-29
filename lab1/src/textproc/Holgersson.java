@@ -97,8 +97,8 @@ public class Holgersson {
 		 * om så att ordningen (balansen) upprätthålls. Därefter fungerar det som ett binärt sökträd. D.v.s. att nycklarna är ordnade i någon ordning.
 		 * Antingen genom en standard comparator eller en man själv definierar.
 		 * 
-		 * Ja, en fördel är att kunna göra generella deklarationer istälelt för specifika, vilket innebär att det är enkelt att ändra sub-datatyper i efterhand
-		 *Comparator är bara en del av den inbyggda .sort, vilken används för att avgöra hur två objekt förhåller sig. Sortfunktionen.
+		 * Ja, en fördel är att kunna göra generella deklarationer istället för specifika, vilket innebär att det är enkelt att ändra sub-datatyper i efterhand
+		 *Comparator är ett interface som kan användas i ex. sort() och används för att avgöra hur två objekt förhåller sig till varandra.
 		 *
 		 * 
 		 */ 

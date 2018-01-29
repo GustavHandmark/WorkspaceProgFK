@@ -1,0 +1,69 @@
+Svar på frågor till övning 3.1
+U2. 
+a) O(2n) -> O(n)
+b) O(n*n/2) -> O(n^2)
+c) n+(n-1)+(n-2)+...+ 2 + 1= n*(n+1)/2 -> O(n^2)
+d) n*n if-satsen exekveras n gånger (i = j), men ändå -> O(n^2)
+
+U3.
+a) 
+addFirst() = O(1) -> d.v.s konstant eftersom första elementet
+removeFirst() = O(1) -> konstant
+addLast() = O(n) -> måste gå igenom hela listan
+removeLast() =  O(n) -> måste gå igenom hela listan
+b)
+Samma som ovan, men addLast blir O(1). removeLast fortfarande O(n)
+c) Dubbel-länkad lista, referenser till previous.
+
+U4.
+exekveringstiden ger olika utslag beroende på vilken processor/hårdvara
+som används. Tidskomplexitet beskriver hur många operation som förväntas
+användas för att lösa uppgiften och kan alltså användas mer generellt.
+
+U5.
+Så O(n) -> c*O(n) -> t(1000)=c*n = 100*1ms/100 -> 10 ms.
+
+U6.
+n=10 -> 1 ms, t(n) = c*2^n, t(10)=1=c*2^10 -> c = 1/(2^10),
+så 1000 = 1/(2^10)*2^n => 2^n = 1000*2^10=2^n
+log(1000*2^10)/log(2) = n = 19.96 -> 19 operationer.
+
+U7.
+a) LinkedList.get() -> O(n), arraylist -> O(1)
+b) indexOf() LinkedList -> O(n), arraylist -> O(1)
+c) add() LinkedList -> O(1) för själva insättningen, O(n) för att leta upp, 
+		 arraylist -> O(n), måste flytta alla element
+d) Samma som ovan
+e) ArrayList -> O(n), LinkedList -> O(n^2) -> O(n^2)
+f)
+int sum = 0;
+Iterator:
+Iterator<Integer>itr = list.iterator();
+while(list.hasNext()){
+	sum = sum + list.next();
+	}
+for(int i: list){
+	sum = sum + i;
+	}
+
+U8.
+Presentation = O(n+k), att leta O(n) om studenten finns, annars O(n) + O(1)
+totalt: (n+k)*(n+k) = (n+k)^2 -> O(n^2)
+O(n)+ O(1) (skriva in) + O(k) => O(n+k) = O(n)
+
+U9.
+O(n^2),
+Kör problem i serie med fördubblade värden, därefter bör tiden vara 4x så stor.
+
+Ovning 4.
+U1. 6
+persons.forEach(person, p -> if(p.getAge()>=18){System.out.print(p.toString())});
+alt: print(persons, p->p.getAge()>=18);
+ 
+
+
+
+
+
+
+

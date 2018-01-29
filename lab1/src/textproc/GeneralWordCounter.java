@@ -3,8 +3,8 @@ package textproc;
 import java.util.*;
 
 public class GeneralWordCounter implements TextProcessor {
-//	private Map<String, Integer> wordlist = new HashMap<String, Integer>();
-	private Map<String, Integer> wordlist = new TreeMap<String, Integer>();
+	private Map<String, Integer> wordlist = new HashMap<String, Integer>();
+//	private Map<String, Integer> wordlist = new TreeMap<String, Integer>();
 
 	private Set<String> excluded;
 
@@ -36,7 +36,8 @@ public class GeneralWordCounter implements TextProcessor {
 		for(int i =0; i<50;i++){
 			System.out.println(wordList.get(i).getKey()+" : "+wordList.get(i).getValue());
 		}
-
 	}
-
+	public Set<Map.Entry<String, Integer>> getWords(){
+		return wordlist.entrySet();
+	}
 }
