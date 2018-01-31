@@ -1,0 +1,19 @@
+package bisection;
+
+public class SingleLinkedList<E> {
+	private ListNode<E> first;
+	public SingleLinkedList() {
+	first = null;
+	}
+	private static class ListNode<E> {
+	private E element;
+	private ListNode<E> next;
+	private ListNode(E e) {
+	element = e;
+	next = null;
+	}
+	}
+	}
+
+
+}

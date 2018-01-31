@@ -1,0 +1,5 @@
+Svar på frågorna
+F2) 256 ggr.4-3-2-1-0; varav 4 rekursiva anrop görs för varje order
+-> 4*4*4*4
+810/(3^4) = 10
+

@@ -1,0 +1,48 @@
+package mountain;
+
+import fractal.Fractal;
+import fractal.TurtleGraphics;
+
+public class Mountain extends Fractal {
+	private Point pa;
+	private Point pb;
+	private Point pc;
+	
+	public Mountain(Point pa,Point pb, Point pc){
+		super();
+		this.pa = pa;
+		this.pb = pb;
+		this.pc = pc;
+	}
+
+	@Override
+	public String getTitle() {
+		return "Mountain";
+	}
+//	turtle.moveTo(turtle.getWidth() / 2.0 - length / 2.0,
+//			turtle.getHeight() / 2.0 + Math.sqrt(3.0) * length / 4.0);
+
+	public void draw(TurtleGraphics turtle) {
+		turtle.moveTo(pa.getX(),pa.getY());
+		fractalLine(turtle, order,pb,0);
+		fractalLine(turtle, order,pc,120);
+		fractalLine(turtle, order,pa,240);
+	}
+
+	/* 
+	 * Recursive method: Draws a recursive triangle of the mountain. 
+	 */
+	private void fractalLine(TurtleGraphics turtle, int order, Point p) {
+		if(order==0){
+			turtle.penDown(); // set as true when creating a turtle, just for backup.
+			turtle.forwardTo(p.getX(),p.getY());
+		} else {
+			fractalLine(turtle,order-1, length/3, alpha);
+			fractalLine(turtle,order-1, length/3, alpha-60);
+			fractalLine(turtle,order-1, length/3, alpha+60);
+			fractalLine(turtle,order-1, length/3, alpha);
+		}
+		
+	}
+
+}

@@ -2,10 +2,11 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Södermanland" key="selection"/>
+		<item value="actFractal" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="actfractal"/>
 			<item value="södermanland"/>
 			<item value="jedalen"/>
 		</list>

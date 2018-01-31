@@ -1,0 +1,9 @@
+package bisection;
+
+public class MyFunction implements Function{
+	public double evaluate(double x){
+		Function f = new Function();
+		
+	}
+
+}

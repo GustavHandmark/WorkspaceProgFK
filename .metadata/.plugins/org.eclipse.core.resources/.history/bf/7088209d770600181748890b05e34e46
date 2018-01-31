@@ -1,0 +1,17 @@
+package bisection;
+
+public class Bisection {
+
+  /** Beräkna nollstället för funktionen f i intervallet low..high med precisionen eps.   
+      Förutsätter att det finns ett nollställe i intervallet. */
+	public static double getZero(double low, double high, double eps, Function f) {
+		double m = f.evaluate((high-low)/2);
+		if(f.evaluate(high)<=0+eps || f.evaluate(low)>=0-eps){
+			return (high+low)/2;
+		}
+		else if(m < f.evaluate(high) && Math.signum(m)==Math.signum(f.evaluate(high))){
+			return getZero(low,m,eps,f);
+		}
+	} 	
+
+}

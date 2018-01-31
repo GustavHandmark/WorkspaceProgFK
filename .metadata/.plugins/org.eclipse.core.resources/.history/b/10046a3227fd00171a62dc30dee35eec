@@ -1,8 +1,0 @@
-package tester;
-
-public class incr {
-	public increase(int j){
-		return j++;
-	}
-
-}

@@ -1,0 +1,8 @@
+package bisection;
+
+public class MyFunction implements Function{
+	public double evaluate(double x){
+		return Math.pow(Math.E,-x) - 1 + Math.cos(x);
+	}
+
+}

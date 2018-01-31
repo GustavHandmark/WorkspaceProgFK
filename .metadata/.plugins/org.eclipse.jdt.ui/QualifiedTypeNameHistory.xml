@@ -27,4 +27,8 @@
 <fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="javafx.stage.FileChooser"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="fractal.Fractal"/>
+<fullyQualifiedTypeName name="mountain.Mountain"/>
+<fullyQualifiedTypeName name="mountain.Point"/>
 </qualifiedTypeNameHistroy>

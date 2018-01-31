@@ -1,9 +1,0 @@
-package tester;
-
-public class Test1 {
-	public static void main(String[] args){
-		int j = 2;
-		incr i = new incr;
-	}
-
-}
