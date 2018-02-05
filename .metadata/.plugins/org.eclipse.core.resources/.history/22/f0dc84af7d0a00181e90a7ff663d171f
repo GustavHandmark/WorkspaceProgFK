@@ -1,0 +1,10 @@
+package mountain;
+
+public class Side2 {
+	public Point p1, p2, m;
+	public Side2(Point p1, Point p2, Point m){
+		this.p1 = p1;
+		this.p2 = p2;
+		this.m = m;
+	}
+}

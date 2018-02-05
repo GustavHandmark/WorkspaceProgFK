@@ -1,0 +1,97 @@
+package mountain;
+
+import java.util.HashMap;
+
+import fractal.Fractal;
+import fractal.TurtleGraphics;
+
+public class MountainSide extends Fractal {
+	private Side ab;
+	private Side bc;
+	private Side ca;
+	private HashMap<Side, Point> smap = new HashMap<Side, Point>();
+
+	public MountainSide(Side ab, Side bc, Side ca) {
+		super();
+		this.ab = ab;
+		this.bc = bc;
+		this.ca = ca;
+		// smap.put(ab, middle(ab.getP1(), ab.getP2(),10.0));
+		// smap.put(bc, middle(bc.getP1(), bc.getP2(),10.0));
+		// smap.put(ca, middle(ca.getP1(), ca.getP2(),10.0));
+
+	}
+
+	@Override
+	public String getTitle() {
+		return "Mountain";
+	}
+
+	// D5
+	public void draw(TurtleGraphics turtle) {
+		fractalTriangle(turtle, order, ab, bc, ca, 10.0);
+	}
+
+	public void fractalTriangle(TurtleGraphics turtle, int order, Side a, Side b, Side c, double d) {
+		if (order == 0) {
+			turtle.moveTo(a.getP1().getX(),a.getP1().getY());
+			turtle.penDown(); // is set as true when creating a turtle, just for
+								// backup.
+			turtle.forwardTo(a.getP2().getX(),a.getP2().getY());
+			turtle.forwardTo(b.getP2().getX(),b.getP2().getY());
+			turtle.forwardTo(c.getP2().getX(),c.getP2().getY());
+		} else {
+			// change the points to the new values, i.e. the middle of where
+			// point a meets point b
+			// cast randfunc in randomutilities to int. (Point only accepts
+			// integers)
+			// Draw new triangles (4)
+			Point AmB = middle(a.getP1(),a.getP2(),d);
+			Point BmC = middle(b.getP1(),b.getP2(),d);
+			Point CmA = middle(c.getP1(),c.getP2(),d);
+			
+			for(Side s:smap.keySet()){
+				if(k.equals(a)){
+					Point AmB2 = v;
+					smap.remove(k);
+				} 
+				if(k.equals(b)){
+					BmC = v;
+					smap.remove(k);
+					
+				} 
+				if (k.equals(c)){
+					CmA = v;
+					smap.remove(k);
+				} 
+			});
+			
+			// This is retarded
+			Side a1 = new Side(a.getP1(),AmB);
+			Side a2 = new Side(AmB, CmA);
+			Side a3 = new Side(CmA, a.getP1());
+			
+			Side b1 = new Side(AmB,b.getP1());
+			Side b2 = new Side(b.getP1(),BmC);
+			Side b3 = new Side(BmC,AmB);
+			
+			Side c1 = new Side(BmC,c.getP1());
+			Side c2 = new Side(c.getP1(),CmA);
+			Side c3 = new Side(CmA,BmC);
+			
+			Side d1 = new Side(AmB,BmC); 
+			Side d2 = new Side(BmC,CmA);
+			Side d3 = new Side(CmA,AmB);
+
+			
+			fractalTriangle(turtle, order - 1,a1,a2,a3,d / 2);
+			fractalTriangle(turtle, order - 1,b1,b2,b3, d / 2);
+			fractalTriangle(turtle, order - 1,c1,c2,c3, d / 2);
+			fractalTriangle(turtle, order - 1,d1,d2,d3, d / 2);
+		}
+	}
+
+	private Point middle(Point p1, Point p2, double d) {
+		return new Point((p1.getX() + p2.getX()) / 2, ((p1.getY() + p2.getY()) / 2 + (int)RandomUtilities.randFunc(d)));
+	}
+}

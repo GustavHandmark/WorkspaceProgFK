@@ -1,0 +1,21 @@
+package mountain;
+
+public class Side {
+	private Point p1;
+	private Point p2;
+	
+	
+	
+	public Side(){
+		
+	}
+	
+	public boolean equals(){
+		
+	}
+	
+	public int hashCode(){
+		return p1.hashCode() +p2.hashCode();
+	}
+	
+}

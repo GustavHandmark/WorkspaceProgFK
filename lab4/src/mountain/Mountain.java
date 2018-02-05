@@ -7,12 +7,14 @@ public class Mountain extends Fractal {
 	private Point pa;
 	private Point pb;
 	private Point pc;
+	private double d;
 	
-	public Mountain(Point pa, Point pb, Point pc) {
+	public Mountain(Point pa, Point pb, Point pc, double d) {
 		super();
 		this.pa = pa;
 		this.pb = pb;
 		this.pc = pc;
+		this.d = d;
 	}
 
 	@Override
@@ -56,7 +58,7 @@ public class Mountain extends Fractal {
 
 	// D4
 	public void draw(TurtleGraphics turtle) {
-		fractalTriangle(turtle,order,pa,pb,pc,100.0);
+		fractalTriangle(turtle,order,pa,pb,pc,d);
 	}
 
 	/*

@@ -1,0 +1,84 @@
+package mountain;
+
+import java.util.HashMap;
+
+import fractal.Fractal;
+import fractal.TurtleGraphics;
+
+public class Mountain2 extends Fractal {
+	private Point a,b,c;
+	private double d;
+	private HashMap<Side, Point> smap = new HashMap<Side, Point>();
+
+	public Mountain2(Point a, Point b, Point c, double d) {
+		super();
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		this.d = d;
+
+	}
+
+	@Override
+	public String getTitle() {
+		return "Mountain sides try 1";
+	}
+
+	// D5
+	public void draw(TurtleGraphics turtle) {
+		fractalTriangle(turtle, order, a,b,c, d);
+	}
+
+	public void fractalTriangle(TurtleGraphics turtle, int order, Point p1, Point p2, Point p3, double d) {
+		if (order == 0) {
+			turtle.moveTo(p1.getX(),p1.getY());
+			turtle.penDown(); // is set as true when creating a turtle, just for
+								// backup.
+			turtle.forwardTo(p2.getX(),p2.getY());
+			turtle.forwardTo(p3.getX(),p3.getY());
+			turtle.forwardTo(p1.getX(),p1.getY());
+		} else {
+			// change the points to the new values, i.e. the middle of where
+			// point a meets point b
+			// cast randfunc in randomutilities to int. (Point only accepts
+			// integers)
+			// Draw new triangles (4)
+			Point AmB;
+			Point BmC;
+			Point CmA;
+			Side ab = new Side(p1,p2);
+			Side bc = new Side(p2,p3);
+			Side ca = new Side(p3,p1);
+			if(smap.containsKey(ab)){
+				AmB = smap.get(ab);
+				smap.remove(ab);
+			} else{
+				AmB = middle(p1,p2,d);
+				smap.put(new Side(p1,AmB), middle(p1,AmB,d));
+			}
+			if(smap.containsKey(bc)){
+				BmC = smap.get(bc);
+				smap.remove(bc);
+			} else{
+				BmC = middle(p2,p3,d);
+				smap.put(new Side(p2,BmC), middle(p2,BmC,d));
+			}
+			if(smap.containsKey(ca)){
+				CmA = smap.get(ca);
+				smap.remove(ca);
+			} else{
+				CmA = middle(p3,p1,d);
+				smap.put(new Side(p3,CmA), middle(p3,CmA,d));
+			}
+			
+			fractalTriangle(turtle,order - 1,AmB,BmC,CmA,d/2);
+			fractalTriangle(turtle,order - 1,p1,AmB,CmA,d/2);
+			fractalTriangle(turtle,order - 1,AmB,p2,BmC,d/2);
+			fractalTriangle(turtle,order - 1,BmC,p3,CmA,d/2);
+		}
+	}
+
+	private Point middle(Point p1, Point p2, double d) {
+		return new Point((p1.getX() + p2.getX()) / 2, ((p1.getY() + p2.getY()) / 2 + (int)RandomUtilities.randFunc(d)));
+	}
+}

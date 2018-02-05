@@ -94,7 +94,7 @@ public class FifoQueue<E> extends AbstractQueue<E> implements Queue<E> {
 
 	public void append(FifoQueue<E> q) {
 		if (q.last != null) { // Shouldn't be possible to append an empty queue
-			if (this == q) { // If q1 & q2 refers to the same object, is it advisable not to use 'this' here?
+			if (this == q) { 
 				throw new IllegalArgumentException();
 			} else if (last == null) {// should be possible to append a
 										// queue(q1) to an empty queue (q2)

@@ -129,7 +129,7 @@ public class TestAppendFifoQueue {
 		Iterator<Integer> itr1 = myIntQueue1.iterator();
 		Iterator<Integer> itrtemp = tempqueue.iterator();
 
-		while (itr1.hasNext() && itrtemp.hasNext()) {
+		while (itr1.hasNext() || itrtemp.hasNext()) {
 			Integer x = itr1.next();
 			Integer y = itrtemp.next();
 			assertEquals("Order of elements is not maintained", x, y);

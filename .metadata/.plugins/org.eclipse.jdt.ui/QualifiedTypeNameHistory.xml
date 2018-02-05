@@ -31,4 +31,10 @@
 <fullyQualifiedTypeName name="fractal.Fractal"/>
 <fullyQualifiedTypeName name="mountain.Mountain"/>
 <fullyQualifiedTypeName name="mountain.Point"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="mountain.Side"/>
+<fullyQualifiedTypeName name="mountain.MountainSide"/>
+<fullyQualifiedTypeName name="mountain.Mountain2"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ConcurrentHashMap"/>
+<fullyQualifiedTypeName name="mountain.Mountain3"/>
 </qualifiedTypeNameHistroy>

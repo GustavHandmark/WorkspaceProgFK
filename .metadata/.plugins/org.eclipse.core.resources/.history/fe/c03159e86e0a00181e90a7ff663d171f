@@ -1,0 +1,156 @@
+package mountain;
+
+import java.util.HashMap;
+
+import fractal.Fractal;
+import fractal.TurtleGraphics;
+
+public class Mountain extends Fractal {
+	private Point a;
+	private Point b;
+	private Point c;
+	private HashMap<Side, Point> smap = new HashMap<Side, Point>();
+
+	public Mountain(Point a, Point b, Point c) {
+		super();
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		// smap.put(ab, middle(ab.getP1(), ab.getP2(),10.0));
+		// smap.put(bc, middle(bc.getP1(), bc.getP2(),10.0));
+		// smap.put(ca, middle(ca.getP1(), ca.getP2(),10.0));
+
+	}
+
+	@Override
+	public String getTitle() {
+		return "Mountain";
+	}
+	// D3
+
+	// turtle.moveTo(turtle.getWidth() / 2.0 - length / 2.0,
+	// turtle.getHeight() / 2.0 + Math.sqrt(3.0) * length / 4.0);
+
+	// public void draw(TurtleGraphics turtle) {
+	// fractalTriangle(turtle,order,pa,pb,pc);
+	// }
+	//
+	// /*
+	// * Recursive method: Draws a recursive triangle of the mountain.
+	// */
+	// private void fractalTriangle(TurtleGraphics turtle, int order, Point a,
+	// Point b, Point c) {
+	// if(order==0){
+	// turtle.moveTo(a.getX(),a.getY());
+	// turtle.penDown(); // set as true when creating a turtle, just for backup.
+	// turtle.forwardTo(b.getX(),b.getY());
+	// turtle.forwardTo(c.getX(),c.getY());
+	// turtle.forwardTo(a.getX(),a.getY());
+	// } else {
+	// // change the points to the new values, i.e. the middle of where point a
+	// meets point b
+	// Point AmB = new Point((a.getX()+b.getX())/2,(a.getY()+b.getY())/2);
+	// Point BmC = new Point((b.getX()+c.getX())/2,(b.getY()+c.getY())/2);
+	// Point CmA = new Point((c.getX()+a.getX())/2,(c.getY()+a.getY())/2);
+	// // Draw new triangles (4)
+	// fractalTriangle(turtle,order - 1,AmB,BmC,CmA);
+	// fractalTriangle(turtle,order - 1,AmB,CmA,a);
+	// fractalTriangle(turtle,order - 1,AmB,b,BmC);
+	// fractalTriangle(turtle,order - 1,BmC,c,CmA);
+	// }
+	//
+	// }
+
+	// D4
+	// public void draw(TurtleGraphics turtle) {
+	// fractalTriangle(turtle,order,pa,pb,pc,100.0);
+	// }
+	//
+	// /*
+	// * Recursive method: Draws a recursive triangle of the mountain.
+	// */
+	// private void fractalTriangle(TurtleGraphics turtle, int order, Point a,
+	// Point b, Point c,double d) {
+	// if(order==0){
+	// turtle.moveTo(a.getX(),a.getY());
+	// turtle.penDown(); // set as true when creating a turtle, just for backup.
+	// turtle.forwardTo(b.getX(),b.getY());
+	// turtle.forwardTo(c.getX(),c.getY());
+	// turtle.forwardTo(a.getX(),a.getY());
+	// } else {
+	// // change the points to the new values, i.e. the middle of where point a
+	// meets point b
+	// // cast randfunc in randomutilities to int. (Point only accepts integers)
+	// Point AmB = new
+	// Point((a.getX()+b.getX())/2,(a.getY()+b.getY())/2+(int)RandomUtilities.randFunc(d));
+	// Point BmC = new
+	// Point((b.getX()+c.getX())/2,(b.getY()+c.getY())/2+(int)RandomUtilities.randFunc(d));
+	// Point CmA = new
+	// Point((c.getX()+a.getX())/2,(c.getY()+a.getY())/2+(int)RandomUtilities.randFunc(d));
+	// // Draw new triangles (4)
+	// fractalTriangle(turtle,order - 1,AmB,BmC,CmA,d/2);
+	// fractalTriangle(turtle,order - 1,AmB,CmA,a,d/2);
+	// fractalTriangle(turtle,order - 1,AmB,b,BmC,d/2);
+	// fractalTriangle(turtle,order - 1,BmC,c,CmA,d/2);
+	// }
+	//
+	// }
+
+	// D5
+	public void draw(TurtleGraphics turtle) {
+		fractalTriangle(turtle, order, a, b, c, 10.0);
+	}
+
+	public void fractalTriangle(TurtleGraphics turtle, int order, Point p1, Point p2, Point p3, double d) {
+		if (order == 0) {
+			turtle.moveTo(p1.getX(),p1.getY());
+			turtle.penDown(); // is set as true when creating a turtle, just for
+								// backup.
+			turtle.forwardTo(p2.getX(),p2.getY());
+			turtle.forwardTo(p3.getX(),p3.getY());
+			turtle.forwardTo(p1.getX(),p1.getY());
+		} else {
+			// change the points to the new values, i.e. the middle of where
+			// point a meets point b
+			// cast randfunc in randomutilities to int. (Point only accepts
+			// integers)
+			// Draw new triangles (4)
+			Point AmB = new Point();
+			Point BmC = new Point();
+			Point CmA = new Point();
+			
+			if (smap.containsKey(a)) {
+				AmB = new Side(a.getP1(), smap.get(a));
+				smap.remove(a);
+			} else {
+				AmB = new Side(a.getP1(), middle(a.getP1(), a.getP2(),d));
+				smap.put(AmB, middle(AmB.getP1(), AmB.getP2(),d/2));
+			}
+			
+			if (smap.containsKey(b)) {
+				BmC = new Side(b.getP1(), smap.get(b));
+				smap.remove(b);
+			} else {
+				BmC = new Side(b.getP1(), middle(b.getP1(), b.getP2(),d));
+				smap.put(BmC, middle(BmC.getP1(), BmC.getP2(),d));
+			}
+			
+			if (smap.containsKey(c)) {
+				CmA = new Side(c.getP1(), smap.get(c));
+				smap.remove(c);
+			} else {
+				CmA = new Side(c.getP1(), middle(c.getP1(), c.getP2(),d));
+				smap.put(CmA, middle(CmA.getP1(), CmA.getP2(),d));
+			}
+			
+			fractalTriangle(turtle, order - 1, AmB, BmC, CmA, d / 2);
+			fractalTriangle(turtle, order - 1, AmB, CmA, a, d / 2);
+			fractalTriangle(turtle, order - 1, AmB, b, BmC, d / 2);
+			fractalTriangle(turtle, order - 1, BmC, c, CmA, d / 2);
+		}
+	}
+
+	private Point middle(Point p1, Point p2, double d) {
+		return new Point((p1.getX() + p2.getX()) / 2, ((p1.getY() + p2.getY()) / 2 + (int)RandomUtilities.randFunc(d)));
+	}
+}
