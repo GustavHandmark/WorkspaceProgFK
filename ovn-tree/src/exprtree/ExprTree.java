@@ -30,7 +30,27 @@ public class ExprTree {
 	 * innehåller parenteser runt alla deluttryck, utom runt talen.
 	 */
 	public String fullParen() {
-		return null;
+		if(root==null){
+			return "";
+		} else{
+			StringBuilder sb = new StringBuilder();
+			recFullParen(root, sb);
+			return sb.toString();
+		}
+	}
+	private void recFullParen(ExprNode n, StringBuilder sb){
+		if(n.left==null && n.right == null){
+			sb.append(n.element);
+		}
+		else {
+			sb.append("(");
+			recFullParen(n.left,sb);
+			sb.append(n.element);
+			recFullParen(n.right,sb);
+			sb.append(")");
+			
+		}
+		
 	}
 
 	private static class ExprNode {
@@ -58,4 +78,44 @@ public class ExprTree {
 		ExprTree tree = new ExprTree("+", mult, rightOp);
 		System.out.println(tree.fullParen());
 	}
+	
+	
+/*	private class catalogues {
+		public catalogues(){
+			//osv osv
+		}
+		
+		boolean isFile();
+		boolean isDirectory();
+		long length();
+		File[] listFiles();
+		
+		public static List<File> biggerThan(File file, int size){
+			List<File> list = new List<File>();
+			recBiggerThan(file,size,list);
+			return list;
+		}
+		private static void recBiggerThan(File file, int size, List<File> list){
+			if(file.isFile() && file.length()> size){
+				list.add(file);
+				}
+			else if(file.isDirectory()){
+				for(File file:file.listFiles()){
+					recBiggerThan(file,size,list);
+				}			
+			}
+		}
+	}
+	
+	while(!queue.isEmpty()){
+		element<E> e = queue.getFirst();
+		if(e.left !=null){
+			queue.add(e.left);
+		} else if(e.right!=null){
+			queue.add(e.right);
+		}
+		e.dostuff();
+	
+*/
 }
+

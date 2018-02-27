@@ -62,7 +62,7 @@ public class Mountain2 extends Fractal {
 	private Point cngPoint(Point p1, Point p2, double d) {
 		Side s = new Side(p1, p2);
 		Point mapPoint = smap.get(s);
-
+		//Could use smap.contains - but this adds an extra iterator
 		if (mapPoint != null) {
 			return smap.remove(s);
 		} else {

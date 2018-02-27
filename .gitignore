@@ -1,1 +1,8 @@
 lab4/src/mountain/MountainSide.java
+.DS_store
+bin/
+gen/ .classpath
+.project
+.settings
+/.metadata/
+/.recommenders/

@@ -63,3 +63,7 @@ IEclipsePreferences#org-eclipse-wst-jsdt-ui {
 		'content_assist_proposals_background=224,224,224'
 		'content_assist_proposals_foreground=15,15,15'
 }
+IEclipsePreferences#org-eclipse-xtend-core-Xtend {
+	preferences:
+		'org.eclipse.xtend.core.Xtend.syntaxColorer.tokenStyles.xtend.richText.bgColor=230,230,230'
+}
