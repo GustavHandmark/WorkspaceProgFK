@@ -18,9 +18,9 @@ public class TestSimpleHashMap {
 
 	@Before
 	public void setUp() throws Exception {
-//		m = new SimpleHashMap<Integer, Integer>(10);
-//		m16 = new SimpleHashMap<Integer, Integer>();
-//		s = new SimpleHashMap<String, Integer>();
+		m = new SimpleHashMap<Integer, Integer>(10);
+		m16 = new SimpleHashMap<Integer, Integer>();
+		s = new SimpleHashMap<String, Integer>();
 	}
 
 	@After
@@ -169,7 +169,7 @@ public class TestSimpleHashMap {
 		java.util.Random random = new java.util.Random(123456);
 		HashSet<Integer> randNbrs = new HashSet<Integer>();
 		for (int i = 0; i < 100; i++) {
-			int r = random.nextInt(10000);			
+			int r = random.nextInt(10000);	
 			m16.put(r, r);
 			randNbrs.add(r);
 		}

@@ -1,0 +1,114 @@
+Hashtabeller
+U1
+a.) 4371,1323,6173,4199,4344,9679,1989
+4371%10 = 1
+1323%10 = 3
+6173%10 =3
+4199%10 =9
+4344%10 =4
+9679%10 =9
+1989%10 =9
+
+ger:
+4371,,1323,6173,,4199
+[9679,4371,1323,6173,4344,1989,,,4199]
+[9679,4371,1989,1323,6173,4344,0,0,0,4199]
+
+b.) kvadratisk teknik
+[9679,4371,0,1323,6173,4344,0,0,1989,4199]
+
+c.) öppen hashtabell
+
+0
+1 - 4371
+2
+3 - 1323 - 6173
+4 - 4344
+5
+6
+7
+8
+9 - 4199 - 9679 -1989
+
+U2 ojämn utspridning (flesta är födda på 19 eller 20-talen)
+
+Mappar och mängder
+U1 : Krav på att elementen (eller klasserna för elementen) implementerar
+Comparabel interfacet.
+a.)
+HashMap<String,Book> bookmap = new HashMap<String,Book>();
+Book book1 = new Book(isbn,title,author);
+bookmap.put(ISBN,Book1)
+osv.
+Utgörs av String -> överskrivna i klassen String.
+
+Set<Book> set = new HashSet<Book>();
+set.add(book1);
+Skugga equals och hashcode.
+public boolean equals(Object o){
+	if(rhs instanceof book){
+	return isbn.equals(((Book) o).isbn);
+	} else {
+	return false;
+	}
+}
+public int hashCode(){
+	return isbn.hashCode();
+}
+
+HashSet.contains(isbn1),
+Hitta bucketen (via isbn.hashValue()), och identifiera om equals stämmer
+i denna listan för något element.
+
+U4. Ja, Book behöver implementerade interfacet Comparable,
+Alt. att man i konstruktorn passar en comparator.(HashSet/treeSet)
+Men eftersom string implementerar comparable så är det lugnt i hashmap.
+
+
+En större HashMap - vilken i sin tur implementerar binära träd vid för långa
+linkedlists.
+
+
+U5.
+Vi kan använda ett HashMap, där nyckeln är ordet, och listan med 
+sidnummer är värdet.
+För varje ord söker man i HashMappen 
+
+
+U6.
+Anagram()
+	anagrams = new HashSet<String,Set<String>>();
+	
+	public void add(String word){
+	String sorted =alphabetize(word);
+	Set<String> anagramSet = anagrams.get(sorted);
+	if(anagramSet = null){
+		anagramSet = new HashSet<String>();
+		anagrams.put(sorted,anagramSet);
+	}
+	anagramSet.add(word);
+	
+public set<String> getAnagramsOf(String word){
+	Set<String> anagramSet = anagrams.get(alphabetize(word));
+	if(anagramSet != null){
+		s = new HashSet<String>(s);
+		s.remove(word);
+		}else{
+		s=new HashSet<String>();
+		}
+		return s;
+
+
+Alhpabetize O(1)
+Add; get -> konstant i medelfall (beror på linkedlistan,
+worst case O(n)
+Blir O(1) totalt average.
+
+Frågorna till lab 6:
+a.) String,
+b.) Integer
+c.) Null,0
+	43, 1
+	42, 1 *(skrivs över)
+	
+	

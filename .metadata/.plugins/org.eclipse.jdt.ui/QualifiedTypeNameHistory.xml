@@ -16,7 +16,6 @@
 <fullyQualifiedTypeName name="javafx.scene.Scene"/>
 <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
 <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="javafx.scene.control.ListView"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
 <fullyQualifiedTypeName name="javafx.scene.input.KeyEvent"/>
@@ -28,7 +27,6 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="mountain.Mountain"/>
 <fullyQualifiedTypeName name="mountain.Point"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="mountain.Side"/>
 <fullyQualifiedTypeName name="mountain.MountainSide"/>
 <fullyQualifiedTypeName name="mountain.Mountain2"/>
@@ -39,4 +37,7 @@
 <fullyQualifiedTypeName name="mountain.Mountainx"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="map.Map.Entry"/>
 </qualifiedTypeNameHistroy>
